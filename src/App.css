@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background: #f6f7fb;
+  color: #111827;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.page {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+  width: 100%;
+  max-width: 1370px;
+  background: #fff;
+  padding: 34px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin: 14px 0 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.output {
+  min-height: 70px;
+  padding: 22px 16px;
+  font-size: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  word-break: break-all;
+}
+
+/* placeholder text without putting real text in the div */
+.output:empty::before {
+  content: attr(data-placeholder);
+  color: #6b7280;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 14px 0 22px;
+}
+
+.backspace {
+  padding: 16px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.backspace.muted {
+  color: #6b7280;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 12px;
+}
+
+.key {
+  aspect-ratio: 1 / 1;
+  font-size: 24px;
+  font-weight: 900;
+  color: #000;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.key:hover,
+.backspace:hover {
+  background: #f9fafb;
+}
+
+.key:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 900px) {
+  .keys {
+    grid-template-columns: repeat(7, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .keys {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
   }
 }
